@@ -14,6 +14,8 @@
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- Site Favicon -->
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAzAD/AED/AAAeAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiACACAAIiAgAgIAIAAAAiAiAgIiAAIgIAAAACAAIAACIAIAIiACIAAAAAAAAAAAAAAAAAAAAAADAAAwAAAAAAAwAwAAAAAAAAEQAAAAAAADMRMwAAAAAAMwAzAAAAAAAAAAAAAAAAD//wAA//8AAP//AACbcQAAa34AAEo5AAB/dwAAmxkAAP//AAD//wAAvf8AANv/AADn/wAAgf8AAJn/AAD//wAA" rel="icon" type="image/x-icon" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -24,15 +26,27 @@
             <p><b>GifTastic:</b> Simple site built using GIPHY API. The site has animal GIFs pre-populated. Users can use the search box and add a dynamic button to create a query of their liking. The site displays still images but can be an animated GIF, if user click's on the picture.</p>
         </div>
         <!-- Site-MidSection -->
-        <div></div>
+        <div>
+            <button data-animal="cat">meow</button>
+            <button data-animal="dog">woof</button>
+            <button data-animal="bird">chirp</button>
+            <div id="gifs-appear-here"></div>
+        </div>
         <!-- Footer Section -->
         <div class="col-md-12 text-center jumbotron">
             <footer class="footer">
                 <p>&copy; 2017 Sanish John</p>
+                <div class="icons ">
+                    <a href="https://github.com/sanishj" target="_blank "><i style="font-size:24px" class="fa">&#xf09b;</i></a>
+                    <a href="https://www.linkedin.com/in/sanishjohn/" target="_blank "><i style="font-size:24px" class="fa">&#xf08c;</i></a>
+                    <a href="https://stackexchange.com/users/10555759/sanishj" target="_blank "><i style="font-size:24px" class="fa">&#xf16c;</i></a>
+                    <a href="https://twitter.com/sanishj" target="_blank "><i style="font-size:24px" class="fa">&#xf099;</i></a>
+                </div>
             </footer>
         </div>
     </div>
-	</div>
-	<script type="text/javascript" src="assets/javascript/app.js"></script>
+    </div>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
+
 </html>
