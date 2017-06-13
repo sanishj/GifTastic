@@ -1,0 +1,13 @@
+/* Color Palette
+#2B2D42 - dark blue
+#8D99AE - light blue
+#EDF2F4 - blue/white
+#EF233C - red
+*/
+h1 {
+	font-family: 'Caveat', cursive;
+	font-weight: 800;
+	margin: 0;
+	/*color: #EF233C;*/
+	/*font-size: 180px;*/
+}
