@@ -24,7 +24,7 @@ for (var i = 0; i < animalSearch.length; i++ ) {
                 });
 
 
-$("button").on("click", function() {
+$("#jsDynamicBtn").on("click", ".btnClass",  function() {
     // Grabbing and storing the data-animal property value from the button
     var animal = $(this).attr("data-animal");
     console.log(animal);
