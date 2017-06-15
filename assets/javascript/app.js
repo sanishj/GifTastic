@@ -1,6 +1,14 @@
-var animalSearch = ["cat","dog","bird"];
-// Adding click event listen listener to all buttons
-
+var animalSearch = ["ferret","badger","koala","elephant","grumpy-cat","hamster","cat","dog","bird","panda"];
+// for loop to dynamically create the buttons on screen from existing array
+for (var i = 0; i < animalSearch.length; i++ ) { 
+            var arrValues = animalSearch[i];
+            // console.log("Print: " + arrValues);
+            var cap = arrValues.toUpperCase();
+            // console.log("Print: " + cap);
+            var dynamicBtn = $("<button>" + cap + "</button>");
+            dynamicBtn.addClass('btnClass btn btn-default').attr("data-animal", arrValues);
+            $("#jsDynamicBtn").append(dynamicBtn);
+          }
 //  On Click event associated with the add-to-do function
             $("#searchBtn").on("click", function(event) {
                 event.preventDefault();
@@ -9,8 +17,10 @@ var animalSearch = ["cat","dog","bird"];
                 var searchedValue = $("#searchbox").val().trim();
                 console.log(searchedValue);
                 var newGifBtn = $("<button>" + searchedValue + "</button>");
-                newGifBtn.addClass('btnClass').attr("data-animal", searchedValue);
-                $("#holder").append(newGifBtn);
+                newGifBtn.addClass('btnClass btn btn-default').attr("data-animal", searchedValue);
+                $("#jsDynamicBtn").append(newGifBtn);
+                animalSearch.push(searchedValue);
+                console.log("Expanded Array: " + animalSearch);
                 });
 
 
