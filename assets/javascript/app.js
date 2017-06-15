@@ -1,5 +1,19 @@
 var animalSearch = ["cat","dog","bird"];
 // Adding click event listen listener to all buttons
+
+//  On Click event associated with the add-to-do function
+            $("#searchBtn").on("click", function(event) {
+                event.preventDefault();
+
+                // Get the to-do "value" from the textbox and store it a variable
+                var searchedValue = $("#searchbox").val().trim();
+                console.log(searchedValue);
+                var newGifBtn = $("<button>" + searchedValue + "</button>");
+                newGifBtn.addClass('btnClass').attr("data-animal", searchedValue);
+                $("#holder").append(newGifBtn);
+                });
+
+
 $("button").on("click", function() {
     // Grabbing and storing the data-animal property value from the button
     var animal = $(this).attr("data-animal");
