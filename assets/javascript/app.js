@@ -24,6 +24,7 @@ div.setAttribute('class', 'well');*/
         // Get the to-do "value" from the textbox and store it a variable
         var searchedValue = $("#searchbox").val().trim();
         console.log(searchedValue);
+        $("#searchbox").val('');
         var newGifBtn = $("<button>" + searchedValue.toUpperCase() + "</button>");
         newGifBtn.addClass('btnClass btn btn-default').attr("data-animal", searchedValue).attr('style', 'margin:5px;');
         $("#jsDynamicBtn").append(newGifBtn);
@@ -63,7 +64,7 @@ div.setAttribute('class', 'well');*/
 
                     // Creating and storing a div tag
                     var animalDiv = $("<div>");
-                    animalDiv.addClass('text-center row')
+                    animalDiv.addClass('text-center').attr('style', 'margin:5px;');
 
                     // Creating a paragraph tag with the result item's rating
                     var rating = results[i].rating
@@ -80,12 +81,12 @@ div.setAttribute('class', 'well');*/
 
                     // still Gifs
                     // animalImagestill.attr("src", results[i].images.fixed_height_still.url);
-                    animalImagestill.attr('id', imageId).addClass('still img-thumbnail well').attr("src", results[i].images.fixed_height_small_still.url).attr('style', 'margin:10px;');;
+                    animalImagestill.attr('id', imageId).addClass('still img-thumbnail well').attr("src", results[i].images.fixed_height_small_still.url).attr('style', 'margin:10px;');
 
 
 
                     // Appending the paragraph and image tag to the animalDiv
-                    animalDiv.prepend(p.addClass('well well-sm text-left'));
+                    animalDiv.prepend(p.addClass('well well-sm text-left')).attr('style', 'float: left;');
                     $("#gifs-appear-here").append(animalImagestill);
                     animalDiv.append(animalImage);
                     $(".still").hover(
