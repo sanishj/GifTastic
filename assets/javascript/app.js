@@ -25,6 +25,8 @@ $("#searchBtn").on("click", function(event) {
 
 
 $("#jsDynamicBtn").on("click", ".btnClass", function() {
+    // clear existing gifs
+     $('#gifs-appear-here').empty();  
     // Grabbing and storing the data-animal property value from the button
     var animal = $(this).attr("data-animal");
     console.log(animal);
@@ -61,8 +63,11 @@ $("#jsDynamicBtn").on("click", ".btnClass", function() {
                 var animalImage = $("<img>");
                 var animalImagestill = $("<img>");
                 // Setting the src attribute of the image to a property pulled off the result item
-                animalImage.attr("src", results[i].images.fixed_height.url);
-                animalImagestill.attr("src", results[i].images.fixed_height_still.url);
+                // animalImage.attr("src", results[i].images.fixed_height.url);
+                animalImage.attr('id',imageId).addClass('giphy').attr("src", results[i].images.fixed_height.url);
+
+                // still Gifs
+                // animalImagestill.attr("src", results[i].images.fixed_height_still.url);
                 animalImagestill.attr('id',imageId).addClass('still').attr("src", results[i].images.fixed_height_still.url);
 
 
@@ -87,9 +92,10 @@ $("#jsDynamicBtn").on("click", ".btnClass", function() {
 
                 // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
                 $("#gifs-appear-here").prepend(animalDiv);
+                $( ".giphy" ).hide();
             }
         });
-        $(".gif").hover(
+        /*$(".gif").hover(
         function()
         {
           var src = $(this).attr("src");
@@ -99,5 +105,5 @@ $("#jsDynamicBtn").on("click", ".btnClass", function() {
         {
           var src = $(this).attr("src");
           $(this).attr("src", src.replace(/\.gif$/i, ".png"));
-        });
+        });*/
 });
