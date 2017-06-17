@@ -1,12 +1,18 @@
 var animalSearch = ["ferret", "badger", "koala", "elephant", "grumpy-cat", "hamster", "cat", "dog", "bird", "panda"];
-// for loop to dynamically create the buttons on screen from existing array
+// for-loop to dynamically create the buttons on screen from existing array
 for (var i = 0; i < animalSearch.length; i++) {
     var arrValues = animalSearch[i];
     // console.log("Print: " + arrValues);
     var cap = arrValues.toUpperCase();
     // console.log("Print: " + cap);
+    /* $( "div" ).click(function() {
+  var color = $( this ).css( "background-color" );
+  $( "#result" ).html( "That div is <span style='color:" +
+    color + ";'>" + color + "</span>." );
+    div.setAttribute('style', 'width:330px; float:left');
+div.setAttribute('class', 'well');*/
     var dynamicBtn = $("<button>" + cap + "</button>");
-    dynamicBtn.addClass('btnClass btn btn-default').attr("data-animal", arrValues);
+    dynamicBtn.addClass('btnClass btn btn-default').attr("data-animal", arrValues).attr('style', 'margin:5px;');
     $("#jsDynamicBtn").append(dynamicBtn);
 }
 //  On Click event associated with the add-to-do function
@@ -16,8 +22,8 @@ $("#searchBtn").on("click", function(event) {
     // Get the to-do "value" from the textbox and store it a variable
     var searchedValue = $("#searchbox").val().trim();
     console.log(searchedValue);
-    var newGifBtn = $("<button>" + searchedValue + "</button>");
-    newGifBtn.addClass('btnClass btn btn-default').attr("data-animal", searchedValue);
+    var newGifBtn = $("<button>" + searchedValue.toUpperCase() + "</button>");
+    newGifBtn.addClass('btnClass btn btn-default').attr("data-animal", searchedValue).attr('style', 'margin:5px;');
     $("#jsDynamicBtn").append(newGifBtn);
     animalSearch.push(searchedValue);
     console.log("Expanded Array: " + animalSearch);
@@ -68,7 +74,7 @@ $("#jsDynamicBtn").on("click", ".btnClass", function() {
 
                 // still Gifs
                 // animalImagestill.attr("src", results[i].images.fixed_height_still.url);
-                animalImagestill.attr('id',imageId).addClass('still').attr("src", results[i].images.fixed_height_still.url);
+                animalImagestill.attr('id',imageId).addClass('still img-thumbnail well').attr("src", results[i].images.fixed_height_still.url);
 
 
 
