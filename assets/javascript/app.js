@@ -43,7 +43,7 @@ div.setAttribute('class', 'well');*/
 
         // Constructing a queryURL using the animal name
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-            animal + "&api_key=dc6zaTOxFJmzC&limit=2";
+            animal + "&api_key=dc6zaTOxFJmzC&limit=10";
 
         // Performing an AJAX request with the queryURL
         $.ajax({
@@ -63,9 +63,11 @@ div.setAttribute('class', 'well');*/
 
                     // Creating and storing a div tag
                     var animalDiv = $("<div>");
+                    animalDiv.addClass('text-center row')
 
                     // Creating a paragraph tag with the result item's rating
-                    var p = $("<p>").html("<h4>Rating: " + results[i].rating + "</h4>");
+                    var rating = results[i].rating
+                    var p = $("<p>").html("<h4>Rating: " + rating.toUpperCase() + "</h4>");
                     var imageId = results[i].id;
                     console.log(imageId);
 
@@ -74,16 +76,16 @@ div.setAttribute('class', 'well');*/
                     var animalImagestill = $("<img>");
                     // Setting the src attribute of the image to a property pulled off the result item
                     // animalImage.attr("src", results[i].images.fixed_height.url);
-                    animalImage.attr('id', imageId).addClass('giphy').attr("src", results[i].images.fixed_height.url);
+                    animalImage.attr('id', imageId).addClass('giphy').attr("src", results[i].images.fixed_height_small.url);
 
                     // still Gifs
                     // animalImagestill.attr("src", results[i].images.fixed_height_still.url);
-                    animalImagestill.attr('id', imageId).addClass('still img-thumbnail well').attr("src", results[i].images.fixed_height_still.url).attr('style', 'margin:10px;');;
+                    animalImagestill.attr('id', imageId).addClass('still img-thumbnail well').attr("src", results[i].images.fixed_height_small_still.url).attr('style', 'margin:10px;');;
 
 
 
                     // Appending the paragraph and image tag to the animalDiv
-                    animalDiv.append(p.addClass('well well-sm'));
+                    animalDiv.prepend(p.addClass('well well-sm text-left'));
                     $("#gifs-appear-here").append(animalImagestill);
                     animalDiv.append(animalImage);
                     $(".still").hover(
