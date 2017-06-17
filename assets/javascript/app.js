@@ -54,7 +54,8 @@ $("#jsDynamicBtn").on("click", ".btnClass", function() {
 
                 // Creating a paragraph tag with the result item's rating
                 var p = $("<p>").text("Rating: " + results[i].rating);
-                // var p1 = $("<p>").text("source_tld: " + results[i].source_tld);
+                var imageId = results[i].id;
+                console.log(imageId);
 
                 // Creating and storing an image tag
                 var animalImage = $("<img>");
@@ -62,7 +63,7 @@ $("#jsDynamicBtn").on("click", ".btnClass", function() {
                 // Setting the src attribute of the image to a property pulled off the result item
                 animalImage.attr("src", results[i].images.fixed_height.url);
                 animalImagestill.attr("src", results[i].images.fixed_height_still.url);
-                animalImagestill.attr('id',results[i].length).addClass('still').attr("src", results[i].images.fixed_height_still.url);
+                animalImagestill.attr('id',imageId).addClass('still').attr("src", results[i].images.fixed_height_still.url);
 
 
 
@@ -70,16 +71,19 @@ $("#jsDynamicBtn").on("click", ".btnClass", function() {
                 animalDiv.append(p);
                 $("#gifs-appear-here").append(animalImagestill);
                 animalDiv.append(animalImage);
-                $(".still").hover(
+                $(".still").hover(  
                     function() {
                         var src = $(this).attr("src");
-                        $(this).attr("src", src.replace(/\.gif$/i, "-.gif"));
+                        $(this).attr("src", src.replace("_s.gif", ".gif"));
                         // alert("over");
+                        console.log("on mouse over: " + src)
                     },
-                    /*function() {
+                    function() {
                         var src = $(this).attr("src");
-                        $(this).attr("src", src.replace("gif", "_s.gif"));
-                    }*/);
+                        $(this).attr("src", src.replace(".gif", "_s.gif"));
+                        // alert("left");
+                        console.log("on mouse left: " + src1)
+                    });
 
                 // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
                 $("#gifs-appear-here").prepend(animalDiv);
